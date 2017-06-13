@@ -1,0 +1,219 @@
+---
+swagger: "2.0"
+info:
+  description: "This is an API for a proof of concept project. Consists on a basic\
+    \ CRUD operations API. No authorisation applied for now.\n"
+  version: "1.0.0"
+  title: "Car manangement"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/xavez88/CarApi/1.0.0"
+tags:
+- name: "car"
+  description: "Car related topic"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /car:
+    post:
+      tags:
+      - "car"
+      summary: "Add a new car"
+      operationId: "create"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Car object that needs to be added."
+        required: true
+        schema:
+          $ref: "#/definitions/Car"
+      responses:
+        201:
+          description: "Car successful creation."
+        405:
+          description: "Invalid input car."
+        422:
+          description: "Invalid car properties values."
+  /car/{carId}:
+    get:
+      tags:
+      - "car"
+      summary: "Find car by ID"
+      description: "Returns a single car matching with the carId."
+      operationId: "read"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "carId"
+        in: "path"
+        description: "ID of car to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Car"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Car not found"
+    put:
+      tags:
+      - "car"
+      summary: "Full Update an existing car"
+      operationId: "update"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "carId"
+        in: "path"
+        description: "Id of the car to be updated."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Car object that needs to be updated. It will update the whole\
+          \ object."
+        required: true
+        schema:
+          $ref: "#/definitions/Car"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Car not found"
+        405:
+          description: "Validation exception"
+        422:
+          description: "Invalid car properties values."
+    delete:
+      tags:
+      - "car"
+      summary: "Deletes a car"
+      operationId: "delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "carId"
+        in: "path"
+        description: "Car id to delete"
+        required: true
+        type: "string"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Car not found"
+    patch:
+      tags:
+      - "car"
+      summary: "Partial Update an existing car"
+      operationId: "partialUpdate"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "carId"
+        in: "path"
+        description: "Id of the car to be partially updated."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Set of car properties that need to be updated. It will update\
+          \ the only these properties."
+        required: true
+        schema:
+          $ref: "#/definitions/Car"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Car not found"
+        405:
+          description: "Validation exception"
+        422:
+          description: "Invalid car properties values."
+definitions:
+  Car:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+        example: "f3c28dcb-941b-460b-bce9-6cc265e732ab"
+      plate:
+        type: "string"
+        example: "123-ABC"
+      completionDate:
+        type: "string"
+        format: "date-time"
+      model:
+        $ref: "#/definitions/Model"
+      manufacturer:
+        $ref: "#/definitions/Manufacturer"
+  Model:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+        example: "f3c28dcb-941b-460b-bce9-6cc265e732ab"
+      name:
+        type: "string"
+      description:
+        type: "string"
+  Manufacturer:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+        example: "994bb568-3fa5-42d4-b846-db7c23f4d5e6"
+      name:
+        type: "string"
+        example: "Ford"
+      contactDetails:
+        $ref: "#/definitions/ContactDetails"
+      addressDetails:
+        $ref: "#/definitions/Address"
+  Address:
+    type: "object"
+    properties:
+      number:
+        type: "integer"
+      street:
+        type: "string"
+      postcode:
+        type: "string"
+      country:
+        type: "string"
+  ContactDetails:
+    type: "object"
+    properties:
+      phoneNumber:
+        type: "string"
+      email:
+        type: "string"
+      mobileNumber:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
