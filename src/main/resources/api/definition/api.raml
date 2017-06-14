@@ -1,0 +1,28 @@
+#%RAML 1.0
+title: ExampleAPI
+version: v1
+baseUri: http://localhost/TODO:Complete me later
+
+description: |
+  This is an API definition for a proof of concept project I'm developing.
+  Consists on a very basic CRUD API for cars.
+  No authorisation applied for now.
+
+/cars:
+  post:
+    description: Operation to add a car to the system.
+    body:
+      application/json:
+        type: object #TO DO Replace by a real type object
+    responses:
+      200:
+        description: Car sucessfully created.
+      405:
+        description: Invalid car input.
+      422:
+        description: Invalid values for car properties.
+  /{carId}:
+  get:
+  put:
+  patch:
+  delete:
