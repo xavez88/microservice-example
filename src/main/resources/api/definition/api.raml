@@ -1,12 +1,61 @@
 #%RAML 1.0
 title: ExampleAPI
-version: v1
+version: v1.0
 baseUri: http://localhost/TODO:Complete me later
 
 description: |
   This is an API definition for a proof of concept project I'm developing.
   Consists on a very basic CRUD API for cars.
   No authorisation applied for now.
+
+types:
+  Car:
+    type: object
+    properties:
+      id?:
+        type: UUID
+        description: Read only property.
+      plate:
+        type: string
+        pattern: "[0-9]{3}-[A-Z]{3}"
+        example: "123-ABC"
+      completionDate:
+        type: datetime-only
+        example: "2011-12-03T10:15:30"
+      model: Model
+      manufacturer: Manufacturer
+  Model:
+    type: object
+    properties:
+      id: UUID
+      name: string
+      description: string
+  Manufacturer:
+    type: object
+    properties:
+      id: UUID
+      name: string
+      contactDetails: ContactDetails
+      addressDetails: Address
+
+  Address:
+    type: object
+    properties:
+      number: integer
+      street: string
+      postcode:
+        type: string
+        pattern: "[A-Z]{2}[1-9] [1-9][A-Z]{2}"
+        example: "BS1 6TH"
+
+  ContactDetails:
+    type: object
+
+  UUID:
+    type: string
+    example: "f3c28dcb-941b-460b-bce9-6cc265e732ab"
+
+
 
 /cars:
   post:
@@ -22,7 +71,12 @@ description: |
       422:
         description: Invalid values for car properties.
   /{carId}:
+    description: Car external identifier.
   get:
+    description: Operation to retrieve a car by its id.
   put:
+    description: Operation to update a car object entirely.
   patch:
+    description: Operation to update a car object partially.
   delete:
+    description: Operation to delete a car object.
