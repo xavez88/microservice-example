@@ -1,0 +1,55 @@
+Car:
+  type: object
+  properties:
+    id?:
+      type: UUID
+      description: Read only property.
+    plate:
+      type: string
+      pattern: "[0-9]{3}-[A-Z]{3}"
+      example: "123-ABC"
+    completionDate:
+      type: datetime-only
+      example: "2011-12-03T10:15:30"
+    color: string
+    lastMOT:
+      type: datetime-only
+      example: "2011-12-03T10:15:30"
+    model: Model
+    manufacturer: Manufacturer
+Model:
+  type: object
+  properties:
+    id: UUID
+    name: string
+    description: string
+Manufacturer:
+  type: object
+  properties:
+    id: UUID
+    name: string
+    contactDetails: ContactDetails
+    addressDetails: Address
+
+Address:
+  type: object
+  properties:
+    number: integer
+    street: string
+    city: string
+    postcode:
+      type: string
+      pattern: "[A-Z]{2}[1-9] [1-9][A-Z]{2}"
+      example: "BS1 6TH"
+    country: string
+
+ContactDetails:
+  type: object
+  properties:
+    phoneNumber: string
+    email: string
+    mobileNumber?: string
+
+UUID:
+  type: string
+  example: "f3c28dcb-941b-460b-bce9-6cc265e732ab"
