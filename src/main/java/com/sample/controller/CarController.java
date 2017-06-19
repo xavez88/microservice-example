@@ -1,5 +1,6 @@
 package com.sample.controller;
 
+import com.sample.utils.UrlConstants;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 
-@RequestMapping
+@RequestMapping(UrlConstants.CARS_ROOT_MAPPING)
 public class CarController {
 
 
