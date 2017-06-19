@@ -17,12 +17,14 @@ Car:
       example: "2011-12-03T10:15:30"
     model: Model
     manufacturer: Manufacturer
+
 Model:
   type: object
   properties:
     id: UUID
     name: string
     description: string
+
 Manufacturer:
   type: object
   properties:
@@ -49,7 +51,7 @@ ContactDetails:
     phoneNumber: string
     email: string
     mobileNumber?: string
-
+    
 UUID:
   type: string
   example: "f3c28dcb-941b-460b-bce9-6cc265e732ab"
