@@ -15,36 +15,36 @@ types: !include schemas/types.raml
     description: Operation to add a car to the system.
     body:
       application/json:
-        type: CarDto
+        type: Car
     responses:
       201:
-        description: CarDto sucessfully created.
+        description: Car sucessfully created.
       405:
         description: Invalid car input.
       422:
         description: Invalid values for car properties.
   /{carId}:
-    description: CarDto external identifier.
+    description: Car external identifier.
   get:
     description: Operation to retrieve a car by its id.
     responses:
       200:
-        description: CarDto sucessfully retrieved.
+        description: Car sucessfully retrieved.
       405:
         description: Invalid id format. Bad request
       404:
-        description: CarDto not found.
+        description: Car not found.
   put:
     description: Operation to update a car object entirely.
     body:
       application/json:
-        type: CarDto
+        type: Car
     responses:
       200:
-        description: CarDto sucessfully updated.
+        description: Car sucessfully updated.
         body:
           application/json:
-            type: CarDto
+            type: Car
       405:
         description: Invalid car input.
       422:
@@ -62,10 +62,10 @@ types: !include schemas/types.raml
           }
     responses:
       200:
-        description: CarDto sucessfully updated.
+        description: Car sucessfully updated.
         body:
           application/json:
-            type: CarDto
+            type: Car
       405:
         description: Invalid car input.
       422:
@@ -74,8 +74,8 @@ types: !include schemas/types.raml
     description: Operation to delete a car object.
     responses:
       200:
-        description: CarDto sucessfully deleted
+        description: Car sucessfully deleted
       404:
-        description: CarDto not found.
+        description: Car not found.
       405:
         description: Invalid id format. Bad request
