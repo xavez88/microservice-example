@@ -4,7 +4,7 @@ info:
   description: "This is an API for a proof of concept project. Consists on a basic\
     \ CRUD operations API. No authorisation applied for now.\n"
   version: "1.0.0"
-  title: "Car manangement"
+  title: "CarDto manangement"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "apiteam@swagger.io"
@@ -15,7 +15,7 @@ host: "virtserver.swaggerhub.com"
 basePath: "/xavez88/CarApi/1.0.0"
 tags:
 - name: "car"
-  description: "Car related topic"
+  description: "CarDto related topic"
   externalDocs:
     description: "Find out more"
     url: "http://swagger.io"
@@ -36,13 +36,13 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Car object that needs to be added."
+        description: "CarDto object that needs to be added."
         required: true
         schema:
-          $ref: "#/definitions/Car"
+          $ref: "#/definitions/CarDto"
       responses:
         201:
-          description: "Car successful creation."
+          description: "CarDto successful creation."
         405:
           description: "Invalid input car."
         422:
@@ -66,11 +66,11 @@ paths:
         200:
           description: "successful operation"
           schema:
-            $ref: "#/definitions/Car"
+            $ref: "#/definitions/CarDto"
         400:
           description: "Invalid ID supplied"
         404:
-          description: "Car not found"
+          description: "CarDto not found"
     put:
       tags:
       - "car"
@@ -88,16 +88,16 @@ paths:
         type: "string"
       - in: "body"
         name: "body"
-        description: "Car object that needs to be updated. It will update the whole\
+        description: "CarDto object that needs to be updated. It will update the whole\
           \ object."
         required: true
         schema:
-          $ref: "#/definitions/Car"
+          $ref: "#/definitions/CarDto"
       responses:
         400:
           description: "Invalid ID supplied"
         404:
-          description: "Car not found"
+          description: "CarDto not found"
         405:
           description: "Validation exception"
         422:
@@ -112,14 +112,14 @@ paths:
       parameters:
       - name: "carId"
         in: "path"
-        description: "Car id to delete"
+        description: "CarDto id to delete"
         required: true
         type: "string"
       responses:
         400:
           description: "Invalid ID supplied"
         404:
-          description: "Car not found"
+          description: "CarDto not found"
     patch:
       tags:
       - "car"
@@ -141,12 +141,12 @@ paths:
           \ the only these properties."
         required: true
         schema:
-          $ref: "#/definitions/Car"
+          $ref: "#/definitions/CarDto"
       responses:
         400:
           description: "Invalid ID supplied"
         404:
-          description: "Car not found"
+          description: "CarDto not found"
         405:
           description: "Validation exception"
         422:
@@ -168,7 +168,7 @@ definitions:
       model:
         $ref: "#/definitions/Model"
       manufacturer:
-        $ref: "#/definitions/Manufacturer"
+        $ref: "#/definitions/ManufacturerDto"
   Model:
     type: "object"
     properties:

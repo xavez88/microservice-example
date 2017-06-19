@@ -3,7 +3,7 @@ endpoints:
 
 info:
   app:
-    name: Car Management Microservice
+    name: CarDto Management Microservice
     description: This is a sample project to proof microservices architecture concepts and best practises.
     version: @project.version@
 
