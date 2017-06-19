@@ -4,6 +4,6 @@ This is a project I've been wanting to launch for a while. I've started to work 
 
 # API Design and definition:
 
-In order to define and design the microservice REST API, we have used Atom editor + Workbench API plugin. These tools have produced a RAML file that can be found under src/main/resources/api/definition
+In order to define and design the microservice REST API, we have used Atom editor + API Workbench (http://apiworkbench.com) plugin. These tools have produced a RAML file that can be found under src/main/resources/api/definition
 
 To view the REST API definition in a user friendly way...
