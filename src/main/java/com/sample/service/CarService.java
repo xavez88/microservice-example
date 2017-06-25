@@ -28,10 +28,11 @@ public interface CarService {
     /**
      * Updates an existing car using the details passed as parameter.
      * The car instance is updated in full.
+     * @param carId the Id of the car to be updated
      * @param car the details to update the existing car with.
      * @return the updated car instance.
      */
-    CarDto update(final CarDto car);
+    CarDto update(final String carId,final CarDto car);
 
     /**
      * Updates an existing car instance updating only the attributes passed as parameters.

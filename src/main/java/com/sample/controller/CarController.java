@@ -40,7 +40,7 @@ public class CarController {
     public CarDto update(@PathVariable("carId") String carId,
                          @RequestBody CarDto car) {
 
-        return carService.update(car);
+        return carService.update(carId,car);
     }
 
     @PatchMapping(UrlConstants.CAR_ID_MAPPING)
