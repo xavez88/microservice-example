@@ -1,3 +1,6 @@
+services:
+  use-stubs: true;
+
 endpoints:
   sensitive: false
 

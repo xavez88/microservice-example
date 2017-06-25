@@ -32,7 +32,7 @@ public class CarServiceStub implements CarService{
     }
 
     @Override
-    public CarDto partialUpdate(Map<String, Object> values) {
+    public CarDto partialUpdate(String carId, Map<String, Object> values) {
         return null;
     }
 
